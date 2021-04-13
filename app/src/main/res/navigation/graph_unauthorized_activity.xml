@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/graph_unauthorized_activity"
+    app:startDestination="@id/chooseRoleFragment">
+
+    <fragment
+        android:id="@+id/chooseRoleFragment"
+        android:name="com.example.talktome.ui.unauthorized.ui.chooseRole.ChooseRoleFragment"
+        tools:layout="@layout/fragment_choose_role" >
+
+        <action
+            android:id="@+id/action_from_choose_role_to_register"
+            app:destination="@id/registerFragment"
+            app:enterAnim="@anim/slide_exit_left"
+            app:exitAnim="@anim/slide_exit_left"
+            app:popEnterAnim="@anim/slide_enter_rigth"
+            app:popExitAnim="@anim/slide_exit_rigth"/>
+
+        <action
+            android:id="@+id/action_from_choose_role_to_login"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_exit_left"
+            app:exitAnim="@anim/slide_exit_left"
+            app:popEnterAnim="@anim/slide_enter_rigth"
+            app:popExitAnim="@anim/slide_exit_rigth"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.talktome.ui.unauthorized.ui.registry.RegisterFragment"
+        tools:layout="@layout/fragment_register" />
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.talktome.ui.unauthorized.ui.login.LoginFragment"
+        tools:layout="@layout/fragment_login" >
+
+        <action
+            android:id="@+id/action_from_login_to_choose_role"
+            app:destination="@id/chooseRoleFragment"
+            app:enterAnim="@anim/slide_exit_left"
+            app:exitAnim="@anim/slide_exit_left"
+            app:popEnterAnim="@anim/slide_enter_rigth"
+            app:popExitAnim="@anim/slide_exit_rigth"/>
+    </fragment>
+</navigation>

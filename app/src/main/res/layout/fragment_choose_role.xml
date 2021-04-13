@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/generalBackgroundColor">
+
+    <TextView
+        android:id="@+id/pageTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/chooseRoleContainer"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="64dp"
+        android:fontFamily="@font/ubuntu_medium"
+        android:text="Выберите роль:"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="32sp" />
+
+    <LinearLayout
+        android:id="@+id/chooseRoleContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/patientCardView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="50"
+                app:cardCornerRadius="8dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_clickable_background"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/patientIcon"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="32dp"
+                        android:src="@drawable/ic_round_person" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/patientIcon"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="32dp"
+                        android:fontFamily="@font/ubuntu"
+                        android:text="Пациент"
+                        android:textColor="@color/primaryTextColor"
+                        android:textSize="16sp" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/doctorCardView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="24dp"
+                android:layout_weight="50"
+                app:cardCornerRadius="8dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_clickable_background"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/doctorIcon"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="32dp"
+                        android:src="@drawable/ic_round_person" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/doctorIcon"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="32dp"
+                        android:fontFamily="@font/ubuntu"
+                        android:text="Психиатр"
+                        android:textColor="@color/primaryTextColor"
+                        android:textSize="16sp" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <!--        <Button-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="56dp"-->
+        <!--            android:layout_marginHorizontal="24dp"-->
+        <!--            android:layout_marginTop="48dp"-->
+        <!--            android:layout_marginBottom="8dp"-->
+        <!--            android:background="@drawable/bg_rounded_blue_button"-->
+        <!--            android:fontFamily="@font/ubuntu_medium"-->
+        <!--            android:text="Зарегистрироваться"-->
+        <!--            android:textColor="@color/textColorWithBackground" />-->
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/ubuntu"
+            android:text="У вас уже есть аккаунт?"
+            android:textAlignment="center"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/loginButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/ubuntu_medium"
+            android:padding="8dp"
+            android:text="Логин"
+            android:textAllCaps="true"
+            android:textColor="@color/textHighlight"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</RelativeLayout>

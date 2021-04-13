@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="primaryTextColor">#FFFFFFFF</color>
+    <color name="secondaryTextColor">#C5C5C5</color>
+    <color name="textColorWithBackground">#FFFFFFFF</color>
+    <color name="textHighlight">#FF03DAC5</color>
+    <color name="textHighlightSecondary">#FF018786</color>
+    <color name="itemBackgroundColor">#FF03DAC5</color>
+    <color name="itemBackgroundColorSecondary">#C5C5C5</color>
+
+    <color name="itemSelected">#FF03DAC5</color>
+    <color name="itemUnselected">#C5C5C5</color>
+
+    <color name="baseItemColor">#FF03DAC5</color>
+
+    <color name="generalBackgroundColor">#2E2E2E</color>
+
+    <color name="opacityColor">#958C8A8A</color>
+
+    <color name="selectableItemBackground">#706C6C</color>
+</resources>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/generalBackgroundColor">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/mainContent"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="48dp"
+        android:fontFamily="@font/ubuntu_medium"
+        android:text="Регистрация"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="32sp" />
+
+    <LinearLayout
+        android:id="@+id/mainContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/nameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_selector_border_gray_radius_8"
+            android:fontFamily="@font/ubuntu_medium"
+            android:hint="Имя"
+            android:inputType="text"
+            android:paddingHorizontal="16dp"
+            android:textColor="@color/primaryTextColor"
+            android:textColorHint="@color/secondaryTextColor"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_selector_border_gray_radius_8"
+            android:fontFamily="@font/ubuntu_medium"
+            android:hint="Почта"
+            android:inputType="textEmailAddress"
+            android:paddingHorizontal="16dp"
+            android:textColor="@color/primaryTextColor"
+            android:textColorHint="@color/secondaryTextColor"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_selector_border_gray_radius_8"
+            android:fontFamily="@font/ubuntu_medium"
+            android:hint="Пароль"
+            android:inputType="textPassword"
+            android:paddingHorizontal="16dp"
+            android:textColor="@color/primaryTextColor"
+            android:textColorHint="@color/secondaryTextColor"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/confirmPassEditText"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/bg_selector_border_gray_radius_8"
+            android:fontFamily="@font/ubuntu_medium"
+            android:hint="Повторите пароль"
+            android:inputType="textPassword"
+            android:paddingHorizontal="16dp"
+            android:textColor="@color/primaryTextColor"
+            android:textColorHint="@color/secondaryTextColor"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/registerButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_rounded_blue_button"
+            android:fontFamily="@font/ubuntu_bold"
+            android:text="Зарегистрироваться"
+            android:textColor="@color/textColorWithBackground"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/progressLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/opacityColor"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:progressTint="@color/baseItemColor"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+
+</RelativeLayout>
