@@ -1,0 +1,129 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.example.talktome"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+ext{
+
+    lifecycleVersion = '2.0.0'
+    nav_version = "2.1.0-alpha06"
+    androidXDependencies = [
+            multidex        : "com.android.support:multidex:1.0.3",
+            appcompat       : "androidx.appcompat:appcompat:1.0.2",
+            materialDesign  : "com.google.android.material:material:1.0.0",
+            constraintLayout: "androidx.constraintlayout:constraintlayout:2.0.0-alpha1",
+            coreKtx         : 'androidx.core:core-ktx:1.0.1',
+            fragmentKtx     : 'androidx.fragment:fragment-ktx:1.0.0',
+            lifecycleExt    : "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion",
+            nav_fragment    : "androidx.navigation:navigation-fragment-ktx:$nav_version",
+            nav_ui          : "androidx.navigation:navigation-ui-ktx:$nav_version",
+            viewPager2      : "androidx.viewpager2:viewpager2:1.0.0"
+    ]
+
+    koinVersion = '2.2.0-alpha-1'
+    koinDependencies = [
+            core     : "org.koin:koin-android:$koinVersion",
+            scope    : "org.koin:koin-androidx-scope:$koinVersion",
+            viewModel: "org.koin:koin-androidx-viewmodel:$koinVersion"
+    ]
+
+    retrofitVersion = '2.6.0'
+    networkDependencies = [
+            core         : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            gsonConverter: "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            scalars      : "com.squareup.retrofit2:converter-scalars:$retrofitVersion",
+            rxAdapter    : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
+            gson         : 'com.google.code.gson:gson:2.8.6'
+    ]
+
+    okHttpVersion = '3.14.0'
+    okHttpDependencies = [
+            okHttp           : "com.squareup.okhttp3:okhttp:$okHttpVersion",
+            okHttpInterceptor: "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+    ]
+
+    imageProcessDependencies = [
+            glide         : 'com.github.bumptech.glide:glide:4.9.0',
+            tranformations: 'jp.wasabeef:glide-transformations:4.0.1'
+    ]
+
+    threadLibs = [
+            eventbus: 'org.greenrobot:eventbus:3.2.0'
+    ]
+
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    // Core
+    implementation androidXDependencies.multidex
+    implementation androidXDependencies.appcompat
+    implementation androidXDependencies.materialDesign
+    implementation androidXDependencies.constraintLayout
+    implementation androidXDependencies.lifecycleExt
+    implementation androidXDependencies.fragmentKtx
+    implementation androidXDependencies.coreKtx
+    implementation androidXDependencies.nav_ui
+    implementation androidXDependencies.nav_fragment
+    implementation androidXDependencies.viewPager2
+
+    // Koin DI
+    implementation koinDependencies.core
+    implementation koinDependencies.scope
+    implementation koinDependencies.viewModel
+
+    // Network
+    implementation networkDependencies.core
+    implementation networkDependencies.gsonConverter
+    implementation networkDependencies.scalars
+    implementation networkDependencies.rxAdapter
+    implementation networkDependencies.gson
+
+    // OkHttp
+    implementation okHttpDependencies.okHttp
+    implementation okHttpDependencies.okHttpInterceptor
+
+    // Image
+    implementation imageProcessDependencies.glide
+    implementation imageProcessDependencies.tranformations
+
+    implementation threadLibs.eventbus
+}
