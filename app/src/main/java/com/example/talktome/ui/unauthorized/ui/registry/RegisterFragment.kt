@@ -4,21 +4,19 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.talktome.R
+import com.example.talktome.common.baseUI.BaseFragment
 
-class RegisterFragment : Fragment(R.layout.fragment_register){
+class RegisterFragment : BaseFragment<RegisterViewModel>(RegisterViewModel::class, R.layout.fragment_register){
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        setupView()
-        setOnclickListener()
+    override fun setupView() {
+        super.setupView()
     }
 
-    private fun setupView(){
-
+    override fun setOnClickListeners() {
+        super.setOnClickListeners()
     }
 
-    private fun setOnclickListener(){
-
+    override fun observeViewModel() {
+        super.observeViewModel()
     }
-
 }

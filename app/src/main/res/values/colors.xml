@@ -9,16 +9,16 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="primaryTextColor">#FF000000</color>
-    <color name="secondaryTextColor">#D87A7979</color>
+    <color name="secondaryTextColor">#D8A3A2A2</color>
     <color name="textColorWithBackground">#FFFFFFFF</color>
     <color name="textHighlight">#2196F3</color>
     <color name="textHighlightSecondary">#28407E</color>
 
     <color name="itemBackgroundColor">#2196F3</color>
-    <color name="itemBackgroundColorSecondary">#D87A7979</color>
+    <color name="itemBackgroundColorSecondary">#EDEDED</color>
 
     <color name="itemSelected">#2196F3</color>
-    <color name="itemUnselected">#D87A7979</color>
+    <color name="itemUnselected">#D3D1D1</color>
 
     <color name="baseItemColor">#2196F3</color>
 

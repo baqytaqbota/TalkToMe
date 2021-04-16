@@ -42,7 +42,7 @@ ext{
             appcompat       : "androidx.appcompat:appcompat:1.0.2",
             materialDesign  : "com.google.android.material:material:1.0.0",
             constraintLayout: "androidx.constraintlayout:constraintlayout:2.0.0-alpha1",
-            coreKtx         : 'androidx.core:core-ktx:1.0.1',
+            coreKtx         : 'androidx.core:core-ktx:1.0.2',
             fragmentKtx     : 'androidx.fragment:fragment-ktx:1.0.0',
             lifecycleExt    : "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion",
             nav_fragment    : "androidx.navigation:navigation-fragment-ktx:$nav_version",
@@ -79,6 +79,10 @@ ext{
 
     threadLibs = [
             eventbus: 'org.greenrobot:eventbus:3.2.0'
+    ]
+
+    uiLibs = [
+            multiTypeAdapter: 'com.drakeet.multitype:multitype:4.2.0'
     ]
 
 }
@@ -127,4 +131,7 @@ dependencies {
     implementation imageProcessDependencies.tranformations
 
     implementation threadLibs.eventbus
+
+    //uilibs
+    implementation uiLibs.multiTypeAdapter
 }

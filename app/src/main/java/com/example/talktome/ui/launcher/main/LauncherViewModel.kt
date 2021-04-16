@@ -1,8 +1,8 @@
 package com.example.talktome.ui.launcher.main
 
-import androidx.lifecycle.ViewModel
+import com.example.talktome.common.baseUI.BaseViewModel
 
-class LauncherViewModel : ViewModel(){
+class LauncherViewModel : BaseViewModel(){
 
 
 }
