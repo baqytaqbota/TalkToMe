@@ -35,3 +35,14 @@ class GetDoctorsByTagUseCase(
         )
     }
 }
+
+class GetDoctorProfileUseCase(
+    private val repo: DoctorsRepository
+): BaseUseCase<Unit, DoctorListDTO>(){
+
+    override suspend fun run(params: Unit, response: (ResultApi<DoctorListDTO>) -> Unit) {
+        response.invoke(
+            repo.getDoctorProfile()
+        )
+    }
+}

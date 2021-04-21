@@ -7,14 +7,15 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.drakeet.multitype.ItemViewBinder
 import com.example.talktome.R
+import com.example.talktome.ui.authorized.session.data.UISessionTime
 import kotlinx.android.synthetic.main.item_checkable_grid_box.view.*
 
-class TimeViewBinder(val listener: ((String)-> Unit)): ItemViewBinder<String, TimeViewBinder.ViewHolder>(){
+class TimeViewBinder(val listener: ((UISessionTime)-> Unit)): ItemViewBinder<UISessionTime, TimeViewBinder.ViewHolder>(){
 
     var previousCheckedPosition = -1
     var mCheckedPosition = -1
 
-    override fun onBindViewHolder(holder: TimeViewBinder.ViewHolder, item: String) {
+    override fun onBindViewHolder(holder: TimeViewBinder.ViewHolder, item: UISessionTime) {
         holder.bind(item)
     }
 
@@ -25,8 +26,8 @@ class TimeViewBinder(val listener: ((String)-> Unit)): ItemViewBinder<String, Ti
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 
-        fun bind(item: String) = with(itemView){
-            valueTextView.text = item
+        fun bind(item: UISessionTime) = with(itemView){
+            valueTextView.text = item.time
 
             val isChecked = layoutPosition == mCheckedPosition
 
@@ -63,6 +64,4 @@ class TimeViewBinder(val listener: ((String)-> Unit)): ItemViewBinder<String, Ti
             }
         }
     }
-
-
 }

@@ -26,14 +26,14 @@
             android:text="Здесь будет информация про вашего терапевта"
             android:textColor="@color/primaryTextColor"
             android:textSize="18sp"
-            android:visibility="gone"/>
+            android:visibility="visible"/>
 
         <RelativeLayout
             android:id="@+id/doctorInfoView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingHorizontal="16dp"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/doctorImageView"
@@ -95,7 +95,7 @@
         app:cardCornerRadius="8dp">
 
         <TextView
-            android:id="@+id/emptySessionInfo"
+            android:id="@+id/emptySessionPatientInfo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/generalBackgroundColor"
@@ -106,13 +106,14 @@
             android:text="Здесь будет информация про ваш сеанс"
             android:textColor="@color/primaryTextColor"
             android:textSize="18sp"
-            android:visibility="gone"/>
+            android:visibility="visible"/>
 
         <RelativeLayout
+            android:id="@+id/sessionPatientInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/labelView"
@@ -135,7 +136,7 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/dateTextView"
+                android:id="@+id/patientDateTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/labelView"
@@ -159,7 +160,7 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/timeTextView"
+                android:id="@+id/patientTimeTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/dateLabel"
@@ -172,7 +173,7 @@
                 android:textSize="14sp" />
 
             <ImageView
-                android:id="@+id/videoPatient"
+                android:id="@+id/videoDoctor"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_below="@id/labelView"
@@ -189,16 +190,30 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
-        android:fontFamily="@font/ubuntu_bold"
+        android:fontFamily="@font/ubuntu_medium"
         android:text="Подходящие вам терапевты"
         android:textColor="@color/primaryTextColor"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/doctorSuggestionRecycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="16dp"
-        tools:listitem="@layout/item_doctors" />
+        tools:listitem="@layout/item_doctors"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/emptyDoctorSuggestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginVertical="32dp"
+        android:gravity="center"
+        android:fontFamily="@font/ubuntu"
+        android:text="Подходящиx терапевтов не нашли"
+        android:textColor="@color/secondaryTextColor"
+        android:textSize="18sp"
+        android:visibility="visible"/>
 
 </LinearLayout>

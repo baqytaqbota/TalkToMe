@@ -15,5 +15,7 @@ data class BlogItemDTO(
     val title: String,
     val content: String,
     val author: String,
-    val createdAt: String
+    val authorId: String,
+    val createdAt: String,
+    val image: String
 ): Parcelable

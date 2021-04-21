@@ -1,7 +1,9 @@
 package com.example.talktome.ui.authorized.session
 
+import android.app.AlertDialog
 import android.widget.Toast
 import androidx.core.view.isVisible
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.drakeet.multitype.MultiTypeAdapter
 import com.example.talktome.R
@@ -21,13 +23,18 @@ class SessionFragment :
     private val doctorData: DoctorListDTO
         get() = arguments?.getParcelable<DoctorListDTO>(ARGConstants.ARG_DOCTOR_DATA) as DoctorListDTO
 
-    private val multiAdapter = MultiTypeAdapter().apply{
+    private val multiAdapter = MultiTypeAdapter().apply {
         register(TimeViewBinder {
-
+            time = it.time
+            timeLong = it.timeLong
         })
     }
 
     private var selectedDate = ""
+    private var time = ""
+    private var timeLong = 0L
+
+    private var selectedDateLong = 0L
 
     override fun loaderState(isVisible: Boolean) {
         super.loaderState(isVisible)
@@ -52,7 +59,7 @@ class SessionFragment :
         }
     }
 
-    private fun initCurrentDay(){
+    private fun initCurrentDay() {
         val date: Long = calendarView.getDate()
         val calendar = Calendar.getInstance()
         calendar.timeInMillis = date
@@ -60,18 +67,20 @@ class SessionFragment :
         val month = calendar[Calendar.MONTH]
         val day = calendar[Calendar.DAY_OF_MONTH]
         selectedDate = "$year-$month-$day"
+        selectedDateLong = date
     }
 
     private fun setCalendarView() {
         calendarView.minDate = Date().time
-        calendarView.maxDate = Date().time + (1000*60*60*24*6)
+        calendarView.maxDate = Date().time + (1000 * 60 * 60 * 24 * 6)
 
         calendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
             selectedDate = "$year-$month-$dayOfMonth"
+            selectedDateLong = view.date
         }
     }
 
-    private fun setupAdapter(){
+    private fun setupAdapter() {
         timeRecycler.apply {
             adapter = multiAdapter
             if (itemDecorationCount == 0)
@@ -79,11 +88,38 @@ class SessionFragment :
         }
     }
 
+    override fun observeViewModel() = with(viewModel) {
+        super.observeViewModel()
+        onSuccess.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+            showDialog()
+        })
+    }
+
+    private fun showDialog() {
+        AlertDialog.Builder(context)
+            .setMessage("Вы успешно записались психотерапевту!")
+            .setPositiveButton("Отлично") { dialog, _ ->
+                dialog.dismiss()
+                findNavController().popBackStack()
+            }.show()
+    }
+
     override fun setOnClickListeners() {
         super.setOnClickListeners()
 
         getSessionButton.setOnClickListener {
-            Toast.makeText(context, selectedDate, Toast.LENGTH_SHORT).show()
+            validateCreation()
+        }
+    }
+
+    private fun validateCreation() {
+        if (time.isEmpty()) {
+            Toast.makeText(context, "Выберите время", Toast.LENGTH_SHORT).show()
+        } else if (selectedDate.isEmpty()) {
+            Toast.makeText(context, "Выберите дату", Toast.LENGTH_SHORT).show()
+        } else {
+            val dateTime = selectedDateLong + timeLong
+            viewModel.createSession(doctorData._id, selectedDate, time, dateTime)
         }
     }
 

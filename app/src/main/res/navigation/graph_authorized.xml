@@ -9,7 +9,16 @@
         android:id="@+id/mainFragment"
         android:name="com.example.talktome.ui.authorized.main.MainFragment"
         android:label="MainFragment"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+
+        <action
+            android:id="@+id/action_from_main_to_get_session"
+            app:destination="@id/sessionFragment"/>
+
+        <action
+            android:id="@+id/action_from_main_to_doctor_detail"
+            app:destination="@+id/doctorsDetail"/>
+    </fragment>
 
     <fragment
         android:id="@+id/doctorsFragment"
@@ -19,11 +28,11 @@
 
         <action
             android:id="@+id/action_from_doctors_to_doctors_detail"
-            app:destination="@+id/doctorsDetail"/>
+            app:destination="@+id/doctorsDetail" />
 
         <action
             android:id="@+id/action_from_doctors_to_session"
-            app:destination="@id/sessionFragment"/>
+            app:destination="@id/sessionFragment" />
     </fragment>
 
     <fragment
@@ -52,7 +61,20 @@
         android:id="@+id/profileFragment"
         android:name="com.example.talktome.ui.authorized.profile.ProfileFragment"
         android:label="AboutFragment"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile">
+
+        <action
+            android:id="@+id/action_to_profile_blogs"
+            app:destination="@id/profileBlogsFragment" />
+
+        <action
+            android:id="@+id/action_to_profile_feedback"
+            app:destination="@id/profileFeedbackFragment" />
+
+        <action
+            android:id="@+id/action_to_profile_session"
+            app:destination="@id/profileSessionFragment" />
+    </fragment>
 
     <!-- BLOG -->
     <fragment
@@ -65,11 +87,11 @@
         android:id="@+id/blogDetailFragment"
         android:name="com.example.talktome.ui.authorized.blog.blogDetail.BlogDetailFragment"
         android:label="BlogDetail"
-        tools:layout="@layout/fragment_blog_detail" >
+        tools:layout="@layout/fragment_blog_detail">
 
         <action
             android:id="@+id/action_from_blog_detail_to_add_blog"
-            app:destination="@+id/addBlogFragment"/>
+            app:destination="@+id/addBlogFragment" />
     </fragment>
 
     <!-- DOCTORS -->
@@ -84,6 +106,27 @@
         android:id="@+id/sessionFragment"
         android:name="com.example.talktome.ui.authorized.session.SessionFragment"
         android:label="SessionFragment"
-        tools:layout="@layout/fragment_session"/>
+        tools:layout="@layout/fragment_session" />
+
+    <!-- PROFILE -->
+    <fragment
+        android:id="@+id/profileBlogsFragment"
+        android:name="com.example.talktome.ui.authorized.profile.userBlogs.UserBlogFragment"
+        tools:layout="@layout/fragment_profile_blogs">
+
+        <action
+            android:id="@+id/action_from_profile_blog_to_blog_detail"
+            app:destination="@id/blogDetailFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFeedbackFragment"
+        android:name="com.example.talktome.ui.authorized.profile.userFeedback.UserFeedbackFragment"
+        tools:layout="@layout/fragment_profile_feedback" />
+
+    <fragment
+        android:id="@+id/profileSessionFragment"
+        tools:layout="@layout/fragment_profile_feedback" />
 
 </navigation>

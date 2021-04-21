@@ -24,7 +24,7 @@ class BlogDetailFragment : BaseFragment<BlogDetailViewModel>(BlogDetailViewModel
         toolbarView.title = blogData.title
         description.text = blogData.content
 
-        val isAuthor = blogData.author == viewModel.getUserId()
+        val isAuthor = blogData.authorId == viewModel.getUserId()
         doctorManagePanel.isVisible = isAuthor
     }
 

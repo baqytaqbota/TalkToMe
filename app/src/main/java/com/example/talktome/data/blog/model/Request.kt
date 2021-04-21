@@ -18,9 +18,9 @@ data class BlogByIdRequestBody(
 
 @Parcelize
 data class BlogUpdateDeleteRequestBody(
-    var _id: String,
+    var id: String,
     var title: String,
     var content: String,
     var author: String,
-    var createdAt: String
+    var image: String
 ): Parcelable

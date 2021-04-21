@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.talktome.common.baseUI.BaseViewModel
-import com.example.talktome.common.constants.ARGConstants
 import com.example.talktome.common.constants.ARGConstants.ARG_BLOG_DATA
 import com.example.talktome.data.blog.model.BlogItemDTO
 import com.example.talktome.data.blog.model.BlogUpdateDeleteRequestBody
@@ -59,11 +58,11 @@ class AddBlogViewModel(
 
     fun onUpdateBlog(itemDTO: BlogItemDTO?, title: String, content: String){
         val request = BlogUpdateDeleteRequestBody(
-            _id = itemDTO?._id.orEmpty(),
+            id = itemDTO?._id.orEmpty(),
             title = title,
             content = content,
             author = itemDTO?.author.orEmpty(),
-            createdAt = itemDTO?.createdAt.orEmpty()
+            image = itemDTO?.image.orEmpty()
         )
         makeUpdateBlogUseCase.request(
             params = request,

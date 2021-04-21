@@ -14,4 +14,8 @@ class DoctorsRepository(private val apiService: ApiService) {
         apiService.getDoctors(param)
     }
 
+    suspend fun getDoctorProfile() = safeApiCall {
+        apiService.getDoctorProfile()
+    }
+
 }

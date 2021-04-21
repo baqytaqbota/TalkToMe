@@ -66,24 +66,6 @@
         android:background="@color/itemBackgroundColorSecondary" />
 
     <TextView
-        android:id="@+id/patientFeedback"
-        android:layout_width="match_parent"
-        android:paddingVertical="16dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:fontFamily="@font/ubuntu"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:text="Мои отзывы"
-        android:textColor="@color/primaryTextColor"
-        android:textSize="18dp" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginHorizontal="24dp"
-        android:background="@color/itemBackgroundColorSecondary" />
-
-    <TextView
         android:id="@+id/patientEditProfile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

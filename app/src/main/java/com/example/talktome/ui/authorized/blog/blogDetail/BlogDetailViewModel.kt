@@ -21,13 +21,13 @@ class BlogDetailViewModel(
     val deleteSuccess: LiveData<Unit>
         get() = _deleteSuccess
 
-    fun onDeleteClicked(itemDTO: BlogItemDTO){
+    fun onDeleteClicked(itemDTO: BlogItemDTO?){
         val request = BlogUpdateDeleteRequestBody(
-            _id = itemDTO._id,
-            title = itemDTO.title,
-            content = itemDTO.content,
-            author = itemDTO.author,
-            createdAt = itemDTO.createdAt
+            id = itemDTO?._id.orEmpty(),
+            title = itemDTO?.title.orEmpty(),
+            content = itemDTO?.content.orEmpty(),
+            author = itemDTO?.author.orEmpty(),
+            image = itemDTO?.image.orEmpty()
         )
         makeDeleteBlogUseCase.request(
             params = request,
