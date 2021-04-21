@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/generalBackgroundColor"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="8dp">
+
+        <TextView
+            android:id="@+id/emptyPatientInfo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/generalBackgroundColor"
+            android:fontFamily="@font/ubuntu_medium"
+            android:gravity="center"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="48dp"
+            android:text="Здесь будет информация про вашего пациента"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="18sp"
+            android:visibility="gone"/>
+
+        <RelativeLayout
+            android:id="@+id/patientInfoView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="16dp"
+            android:visibility="visible">
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/patientImageView"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_person"
+                app:civ_border_color="@color/baseItemColor"
+                app:civ_border_width="2dp"
+                app:civ_shadow="false"
+                app:civ_shadow_color="#3f51b5"
+                app:civ_shadow_radius="10dp" />
+
+            <TextView
+                android:id="@+id/patientLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_toEndOf="@id/patientImageView"
+                android:fontFamily="@font/ubuntu_bold"
+                android:text="Ваш пациент"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/patientName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/patientLabel"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@id/patientImageView"
+                android:fontFamily="@font/ubuntu_bold"
+                android:text="Юлия Пасс"
+                android:textColor="@color/textHighlight"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/chatPatient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/patientName"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_toEndOf="@id/patientImageView"
+                android:fontFamily="@font/ubuntu_medium"
+                android:paddingVertical="8dp"
+                android:text="Написать пациенту"
+                android:textColor="@color/textHighlightSecondary"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="32dp"
+        app:cardCornerRadius="8dp">
+
+        <TextView
+            android:id="@+id/emptySessionInfo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/generalBackgroundColor"
+            android:fontFamily="@font/ubuntu_medium"
+            android:gravity="center"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="48dp"
+            android:text="Здесь будет информация про ваш сеанс"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="16sp"
+            android:visibility="gone"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/labelView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ubuntu_bold"
+                android:text="Ваша следующая сессия"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/dateLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/labelView"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/ubuntu_medium"
+                android:text="Дата: "
+                android:textColor="@color/primaryTextColor"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/dateTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/labelView"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_toEndOf="@id/dateLabel"
+                android:fontFamily="@font/ubuntu_bold"
+                android:text="27.01.2021"
+                android:textColor="@color/textHighlight"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/timeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dateLabel"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/ubuntu_medium"
+                android:text="Время: "
+                android:textColor="@color/primaryTextColor"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/timeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dateLabel"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_toEndOf="@id/timeLabel"
+                android:fontFamily="@font/ubuntu_bold"
+                android:text="17.00 - 18.00"
+                android:textColor="@color/textHighlight"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/videoPatient"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_below="@id/labelView"
+                android:layout_alignTop="@id/dateLabel"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/ic_videocam" />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/ubuntu_bold"
+        android:text="Ваши сеансы"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="20sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/doctorSuggestionRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp"
+        tools:listitem="@layout/item_session" />
+
+</LinearLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="BotnavTextStyle">
+        <item name="android:fontFamily">@font/ubuntu_medium</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="CollapsingToolbarTextAppearanceExpanded">
+        <item name="android:fontFamily">@font/ubuntu_medium</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+    </style>
+
+    <style name="CollapsingToolbarTextAppearanceCollapsed">
+        <item name="android:fontFamily">@font/ubuntu_medium</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+    </style>
+</resources>

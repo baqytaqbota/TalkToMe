@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="24dp"
+    app:cardElevation="1dp"
+    app:cardCornerRadius="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="16dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingEnd="16dp">
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/doctorImageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_person"
+                app:civ_border_color="@color/baseItemColor"
+                android:layout_marginStart="8dp"
+                app:civ_border_width="2dp"
+                android:layout_centerVertical="true"
+                app:civ_shadow="false"
+                app:civ_shadow_color="#3f51b5"
+                app:civ_shadow_radius="10dp" />
+
+            <TextView
+                android:id="@+id/doctorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@id/doctorImageView"
+                android:fontFamily="@font/ubuntu_bold"
+                android:text="Юлия Пасс"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/doctorExperience"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/doctorName"
+                android:layout_marginTop="4dp"
+                android:layout_toEndOf="@id/doctorImageView"
+                android:fontFamily="@font/ubuntu"
+                android:text="Опыт - 4 года"
+                android:textColor="@color/secondaryTextColor" />
+
+            <RatingBar
+                android:id="@+id/doctorRatingBar"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/doctorExperience"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@id/doctorImageView"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:rating="4.7"
+                android:stepSize="0.1" />
+
+            <TextView
+                android:id="@+id/doctorTags"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/doctorRatingBar"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/ubuntu"
+                android:layout_toEndOf="@id/doctorImageView"
+                android:text="#апатия #стресс #отсутствие концентрации #осутствие мотивации" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/getSessionBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_rounded_blue_button"
+                android:fontFamily="@font/ubuntu_bold"
+                android:text="Записаться"
+                android:layout_marginBottom="16dp"
+                android:elevation="0dp"
+                android:textColor="@color/textColorWithBackground"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/moreInfoBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_rounded_gray_button"
+                android:fontFamily="@font/ubuntu_bold"
+                android:text="Узнать больше"
+                android:layout_marginBottom="16dp"
+                android:elevation="0dp"
+                android:textColor="@color/textHighlightSecondary"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

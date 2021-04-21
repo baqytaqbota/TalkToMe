@@ -28,7 +28,7 @@
             android:fontFamily="@font/ubuntu_medium"
             android:text="Анкета"
             android:textColor="@color/primaryTextColor"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
     </RelativeLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -50,11 +50,56 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/ubuntu_medium"
+                android:text="Имя"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/nameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/ubuntu_medium"
+                android:hint="Имя"
+                android:inputType="text"
+                android:textColor="@color/primaryTextColor"
+                android:textColorHint="@color/secondaryTextColor" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/ubuntu_medium"
+                android:text="Фамилия"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/secondNameView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/ubuntu_medium"
+                android:hint="Фамилия"
+                android:inputType="text"
+                android:textColor="@color/primaryTextColor"
+                android:textColorHint="@color/secondaryTextColor" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/ubuntu_medium"
                 android:text="Сколько вам лет?"
                 android:textColor="@color/primaryTextColor"
                 android:textSize="14sp" />
 
             <EditText
+                android:id="@+id/ageView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
@@ -89,16 +134,32 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
+    <RelativeLayout
+        android:id="@+id/progressLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/opacityColor"
+        android:layout_above="@id/continueButton"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:progressTint="@color/baseItemColor"
+            android:visibility="visible" />
+    </RelativeLayout>
+
     <Button
         android:id="@+id/continueButton"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="48dp"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="8dp"
         android:layout_alignParentBottom="true"
         android:background="@drawable/bg_rounded_blue_button"
         android:fontFamily="@font/ubuntu_bold"
         android:textColor="@color/textColorWithBackground"
         android:text="Сохранить"
-        android:textSize="16sp" />
+        android:textSize="14sp" />
 </RelativeLayout>

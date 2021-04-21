@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/generalBackgroundColor">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/generalBackgroundColor"
+            app:elevation="3dp"
+            app:expanded="true">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:collapsedTitleGravity="start"
+                app:collapsedTitleTextAppearance="@style/CollapsingToolbarTextAppearanceCollapsed"
+                app:contentScrim="@color/white"
+                app:expandedTitleMarginBottom="22dp"
+                app:expandedTitleMarginStart="24dp"
+                app:expandedTitleTextAppearance="@style/CollapsingToolbarTextAppearanceExpanded"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <kr.pe.burt.android.lib.androidgradientimageview.AndroidGradientImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/qwerty"
+                    app:giv_alpha="8"
+                    app:giv_endColor="@color/white"
+                    app:giv_endOffset="0.68"
+                    app:giv_middleColor="@color/white"
+                    app:giv_middleOffset="0.2"
+                    app:giv_rotate="60"
+                    app:giv_x="0.0"
+                    app:giv_y="0.0" />
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbarView"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:contentInsetEnd="48dp"
+                    app:contentInsetStartWithNavigation="0dp"
+                    app:layout_collapseMode="pin"
+                    app:navigationIcon="@drawable/ic_back_icon"
+                    app:title="Психология" />
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/doctorManagePanel"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="8dp"
+                        android:paddingHorizontal="16dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:orientation="horizontal">
+
+                            <RelativeLayout
+                                android:id="@+id/editBlog"
+                                android:layout_width="100dp"
+                                android:layout_height="56dp"
+                                android:layout_marginEnd="16dp"
+                                android:background="@drawable/bg_light_action_dp_8"
+                                android:paddingVertical="4dp">
+
+                                <ImageView
+                                    android:id="@+id/editImage"
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:src="@drawable/ic_edit" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/editImage"
+                                    android:layout_centerHorizontal="true"
+                                    android:text="Изменить"
+                                    android:textColor="@color/black" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/deleteBlog"
+                                android:layout_width="100dp"
+                                android:layout_height="56dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="16dp"
+                                android:background="@drawable/bg_light_action_dp_8"
+                                android:paddingVertical="4dp">
+
+                                <ImageView
+                                    android:id="@+id/favImage"
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:src="@drawable/ic_delete" />
+
+                                <TextView
+                                    android:id="@+id/favText"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/favImage"
+                                    android:layout_centerHorizontal="true"
+                                    android:text="Удалить"
+                                    android:textColor="@color/black" />
+                            </RelativeLayout>
+
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:fontFamily="@font/ubuntu"
+                        android:paddingHorizontal="16dp"
+                        android:layout_marginTop="8dp"
+                        android:paddingTop="8dp"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </RelativeLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <RelativeLayout
+        android:id="@+id/progressLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/opacityColor"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:progressTint="@color/baseItemColor"
+            android:visibility="visible" />
+    </RelativeLayout>
+</RelativeLayout>

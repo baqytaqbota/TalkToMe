@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp">
+
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/backIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="24dp"
+            android:visibility="visible"
+            app:srcCompat="@drawable/ic_back_icon" />
+
+        <TextView
+            android:id="@+id/titleView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/ubuntu_medium"
+            android:text="Выберите время"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_above="@id/getSessionButton"
+        android:layout_marginBottom="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="8dp">
+
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/doctorImageView"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="16dp"
+                    android:src="@drawable/ic_person"
+                    app:civ_border_color="@color/baseItemColor"
+                    app:civ_border_width="2dp"
+                    app:civ_shadow="false"
+                    app:civ_shadow_color="#3f51b5"
+                    app:civ_shadow_radius="10dp" />
+
+                <TextView
+                    android:id="@+id/doctorName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_toEndOf="@id/doctorImageView"
+                    android:fontFamily="@font/ubuntu_bold"
+                    android:text="Юлия Пасс"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/doctorExperience"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/doctorName"
+                    android:layout_marginTop="4dp"
+                    android:layout_toEndOf="@id/doctorImageView"
+                    android:fontFamily="@font/ubuntu"
+                    android:text="Опыт - 4 года"
+                    android:textColor="@color/secondaryTextColor" />
+
+                <RatingBar
+                    android:id="@+id/doctorRatingBar"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/doctorExperience"
+                    android:layout_marginTop="8dp"
+                    android:layout_toEndOf="@id/doctorImageView"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:rating="4.7"
+                    android:stepSize="0.1" />
+
+                <TextView
+                    android:id="@+id/doctorTags"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/doctorRatingBar"
+                    android:layout_marginTop="8dp"
+                    android:layout_toEndOf="@id/doctorImageView"
+                    android:fontFamily="@font/ubuntu"
+                    android:text="#апатия #стресс #отсутствие концентрации #осутствие мотивации" />
+            </RelativeLayout>
+
+            <CalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:datePickerMode="spinner"
+                android:spinnersShown="false" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/timeRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:paddingHorizontal="24dp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"
+                tools:listitem="@layout/item_checkable_grid_box" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <RelativeLayout
+        android:id="@+id/progressLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/opacityColor"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:progressTint="@color/baseItemColor"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/getSessionButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_rounded_blue_button"
+        android:fontFamily="@font/ubuntu_bold"
+        android:text="Записаться"
+        android:textColor="@color/textColorWithBackground"
+        android:textSize="14sp" />
+</RelativeLayout>
+

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="24dp">
+
+    <TextView
+        android:id="@+id/universityName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ubuntu"
+        android:text="Nazarbaev University"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/majorView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/universityName"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/ubuntu"
+        android:text="Masters"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/cityView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/majorView"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/ubuntu"
+        android:text="Nur-Sultan"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/periodView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/majorView"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_toEndOf="@id/cityView"
+        android:fontFamily="@font/ubuntu"
+        android:text="2011-2015"
+        android:textColor="@color/secondaryTextColor"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/itemBackgroundColorSecondary"
+        android:layout_below="@id/cityView"
+        android:layout_marginTop="16dp"/>
+</RelativeLayout>
