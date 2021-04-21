@@ -22,7 +22,7 @@ open class BaseActivity<T: BaseViewModel>(clazz: KClass<T>, layout: Int) : AppCo
 
     open fun observeViewModel() = with(viewModel){
         error.observe(this@BaseActivity, Observer {
-            Toast.makeText(this@BaseActivity, it, Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this@BaseActivity, it, Toast.LENGTH_SHORT).show()
         })
         loading.observe(this@BaseActivity, Observer {
             loaderState(it)

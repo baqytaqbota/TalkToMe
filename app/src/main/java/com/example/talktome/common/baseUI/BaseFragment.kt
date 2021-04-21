@@ -24,7 +24,7 @@ open class BaseFragment<T: BaseViewModel>(clazz: KClass<T>, layout: Int) : Fragm
 
     open fun observeViewModel() = with(viewModel){
         error.observe(viewLifecycleOwner, Observer {
-            Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+            //Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
         })
         loading.observe(viewLifecycleOwner, Observer {
             loaderState(it)

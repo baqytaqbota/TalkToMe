@@ -50,11 +50,9 @@ interface ApiService {
     @POST("sessions")
     suspend fun makeCreateSession(@Body request: CreateSessionRequestBody) : Unit
 
-    @GET("sessions")
+    @HTTP(method = "GET",path = "sessions", hasBody = false)
     suspend fun getNearlySession(): SessionResultDTO
 
-    @POST("sessions/doctor")
+    @HTTP(method = "POST",path = "sessions/doctor", hasBody = true)
     suspend fun getSessions(@Body request: SessionDateRequestBody): List<SessionResultDTO>
-
-
 }

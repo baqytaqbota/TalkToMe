@@ -26,11 +26,9 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".ui.authorized.MainActivity" />
+        <activity android:name=".ui.authorized.MainActivity" />
         <activity android:name=".ui.unauthorized.ui.UnauthorizedActivity" />
-        <activity
-            android:name="com.example.talktome.ui.unauthorized.ui.survey.SurveyActivity"
+        <activity android:name="com.example.talktome.ui.unauthorized.ui.survey.SurveyActivity"
             android:windowSoftInputMode="adjustResize|adjustPan" />
 
         <meta-data

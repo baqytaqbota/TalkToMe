@@ -77,7 +77,7 @@ class MainFragment : BaseFragment<MainViewModel>(MainViewModel::class, R.layout.
     private fun setPatientView() {
         doctorSuggestionRecycler.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-            adapter = sessionAdapter
+            adapter = doctorsAdapter
             if (itemDecorationCount == 0)
                 addItemDecoration(VerticalItemDecorator(48, 32))
         }
@@ -86,7 +86,7 @@ class MainFragment : BaseFragment<MainViewModel>(MainViewModel::class, R.layout.
     private fun setDoctorView() {
         doctorSessionRecycler.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-            adapter = doctorsAdapter
+            adapter = sessionAdapter
             if (itemDecorationCount == 0)
                 addItemDecoration(VerticalItemDecorator(48, 32))
         }
@@ -95,7 +95,7 @@ class MainFragment : BaseFragment<MainViewModel>(MainViewModel::class, R.layout.
     override fun observeViewModel() = with(viewModel) {
         super.observeViewModel()
         doctors.observe(viewLifecycleOwner, Observer {
-            emptyDoctorSessions.isVisible = it.isNullOrEmpty()
+            emptyDoctorSuggestion.isVisible = it.isNullOrEmpty()
             doctorSuggestionRecycler.isVisible = !it.isNullOrEmpty()
             doctorsAdapter.apply {
                 items = it

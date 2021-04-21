@@ -11,6 +11,7 @@ import com.example.talktome.data.blog.model.BlogItemDTO
 import kotlinx.android.synthetic.main.item_blog.view.*
 
 class BlogItemViewBinder(val onClick: ((BlogItemDTO)-> Unit)) : ItemViewBinder<BlogItemDTO, BlogItemViewBinder.ViewHolder>(){
+
     override fun onBindViewHolder(holder: BlogItemViewBinder.ViewHolder, item: BlogItemDTO) {
         holder.bind(item)
     }
