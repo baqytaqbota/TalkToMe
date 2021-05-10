@@ -47,8 +47,10 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <RelativeLayout
+                android:id="@+id/settingsLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/iconSettings"
@@ -75,7 +77,11 @@
                 android:layout_height="match_parent">
 
 
-                <!-- Сюда писать основной контент -->
+                <fragment
+                    android:id="@+id/conversationList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    class="com.cometchat.pro.uikit.ui_components.chats.CometChatConversationList" />
 
 
             </androidx.core.widget.NestedScrollView>

@@ -1,2 +1,3 @@
+include ':chat'
 include ':app'
 rootProject.name = "TalkToMe"

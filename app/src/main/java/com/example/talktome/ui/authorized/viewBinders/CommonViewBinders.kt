@@ -75,7 +75,7 @@ class FeedbackItemView : ItemViewBinder<DoctorFeedBack, FeedbackItemView.ViewHol
     }
 }
 
-class SessionViewBinder : ItemViewBinder<SessionResultDTO, SessionViewBinder.ViewHolder>() {
+class SessionViewBinder() : ItemViewBinder<SessionResultDTO, SessionViewBinder.ViewHolder>() {
 
     override fun onBindViewHolder(holder: SessionViewBinder.ViewHolder, item: SessionResultDTO) {
         holder.bind(item)
@@ -89,7 +89,7 @@ class SessionViewBinder : ItemViewBinder<SessionResultDTO, SessionViewBinder.Vie
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(item: SessionResultDTO) = with(itemView) {
-            patientName.text = item.patientId
+            patientName.text = item.patient
 
             chatPatient.setOnClickListener {
                 Toast.makeText(context, "Функционал в разработке", Toast.LENGTH_SHORT).show()

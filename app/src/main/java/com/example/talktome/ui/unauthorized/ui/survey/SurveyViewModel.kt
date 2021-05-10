@@ -1,11 +1,16 @@
 package com.example.talktome.ui.unauthorized.ui.survey
 
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.cometchat.pro.core.CometChat
+import com.cometchat.pro.exceptions.CometChatException
+import com.cometchat.pro.models.User
 import com.example.talktome.common.baseUI.BaseViewModel
 import com.example.talktome.common.constants.ARGConstants.ARG_EMAIL
 import com.example.talktome.common.constants.ARGConstants.ARG_PASSWORD
+import com.example.talktome.common.constants.ChatConfig.CHAT_API_KEY
 import com.example.talktome.data.authorization.model.RegisterRequestBody
 import com.example.talktome.domain.authorizedUser.SetTokenUseCase
 import com.example.talktome.domain.authorizedUser.SetUserIdUseCase
@@ -81,7 +86,25 @@ class SurveyViewModel(
             setTokenUseCase.setToken(it?.token.orEmpty())
             setUserIdUseCase.setUserId(it?.userId.orEmpty())
             setUserRoleUseCase.setUserRole(it?.role.orEmpty())
-            _redirectToMain.value = Unit
+
+            val user = User()
+            user.name = "$name $secondName"
+            user.uid = it?.userId
+
+            /**
+             *  Создаем пользователя для чата
+             */
+            CometChat.createUser(user, CHAT_API_KEY, object : CometChat.CallbackListener<User>() {
+                override fun onSuccess(user: User) {
+                    Log.d("createUser", user.toString())
+                    _redirectToMain.value = Unit
+                }
+
+                override fun onError(e: CometChatException) {
+                    Log.e("createUser", e.message)
+                }
+            })
+
         }, loading = _loading, error =  _error)
     }
 }

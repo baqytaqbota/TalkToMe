@@ -32,11 +32,22 @@ class MainViewModel(
     val sessionPatient: LiveData<SessionResultDTO>
         get() = _sessionPatient
 
+    private val _chat = MutableLiveData<String>()
+    val chat : LiveData<String>
+        get() = _chat
+
+    private val _videoCall = MutableLiveData<String>()
+    val videoCall: LiveData<String>
+        get() = _videoCall
+
+    private var userId = ""
+
     fun onDoctorViewCreated(){
         getNearSessionUseCase.request(
             params = Unit,
             onResult = {
                 _sessionDoctor.value = it
+                userId = it?.patientId.orEmpty()
             },
             loading = _loading,
             error = _error
@@ -48,6 +59,7 @@ class MainViewModel(
             params = Unit,
             onResult = {
                 _sessionPatient.value = it
+                userId = it?.doctorId.orEmpty()
             },
             loading = _loading,
             error = _error
@@ -81,5 +93,13 @@ class MainViewModel(
             loading = _loading,
             error = _error
         )
+    }
+
+    fun onChatClicked(){
+        _chat.value = userId
+    }
+
+    fun onVideoCallClicked(){
+        _videoCall.value = userId
     }
 }

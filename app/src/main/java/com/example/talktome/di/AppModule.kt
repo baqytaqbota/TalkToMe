@@ -156,7 +156,7 @@ val viewModelModule = module {
         SurveyViewModel(get(), get(), get(), get())
     }
     viewModel {
-        MainActivityViewModel()
+        MainActivityViewModel(get())
     }
     viewModel {
         MainViewModel(get(), get(), get(), get())

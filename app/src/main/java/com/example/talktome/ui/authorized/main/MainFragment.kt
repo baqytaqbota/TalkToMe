@@ -7,6 +7,11 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.cometchat.pro.constants.CometChatConstants
+import com.cometchat.pro.core.CometChat
+import com.cometchat.pro.exceptions.CometChatException
+import com.cometchat.pro.models.User
+import com.cometchat.pro.uikit.ui_resources.utils.Utils
 import com.drakeet.multitype.MultiTypeAdapter
 import com.example.talktome.R
 import com.example.talktome.common.baseUI.BaseFragment
@@ -14,6 +19,7 @@ import com.example.talktome.common.constants.ARGConstants
 import com.example.talktome.ui.authorized.viewBinders.DoctorsViewBinder
 import com.example.talktome.ui.authorized.viewBinders.SessionViewBinder
 import com.example.talktome.utils.decorator.VerticalItemDecorator
+import com.example.talktome.utils.extensions.startChatIntent
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.layout_main_doctor.*
 import kotlinx.android.synthetic.main.layout_main_patient.*
@@ -61,16 +67,16 @@ class MainFragment : BaseFragment<MainViewModel>(MainViewModel::class, R.layout.
     override fun setOnClickListeners() {
         super.setOnClickListeners()
         chatPatient.setOnClickListener {
-            Toast.makeText(context, "Функционал в разработке",Toast.LENGTH_SHORT).show()
+            viewModel.onChatClicked()
         }
         chatDoctor.setOnClickListener {
-            Toast.makeText(context, "Функционал в разработке",Toast.LENGTH_SHORT).show()
+            viewModel.onChatClicked()
         }
         videoPatient.setOnClickListener {
-            Toast.makeText(context, "Функционал в разработке",Toast.LENGTH_SHORT).show()
+            viewModel.onVideoCallClicked()
         }
         videoDoctor.setOnClickListener {
-            Toast.makeText(context, "Функционал в разработке",Toast.LENGTH_SHORT).show()
+            viewModel.onVideoCallClicked()
         }
     }
 
@@ -111,26 +117,48 @@ class MainFragment : BaseFragment<MainViewModel>(MainViewModel::class, R.layout.
             }
         })
         sessionDoctor.observe(viewLifecycleOwner, Observer {
-            if(it!=null){
+            if (it != null) {
                 emptyPatientInfo.isVisible = false
                 patientInfoView.isVisible = true
                 emptySessionDoctorInfo.isVisible = false
                 sessionDoctorInfo.isVisible = true
-                patientName.text = it.patientId
+                patientName.text = it.patient
                 doctorDateTextView.text = it.date
                 doctorTimeTextView.text = it.time
             }
         })
         sessionPatient.observe(viewLifecycleOwner, Observer {
-            if(it!=null){
+            if (it != null) {
                 emptyDoctorInfo.isVisible = false
                 doctorInfoView.isVisible = true
                 emptySessionPatientInfo.isVisible = false
                 sessionPatientInfo.isVisible = true
-                doctorName.text = it.patientId
+                doctorName.text = it.doctor
                 patientDateTextView.text = it.date
                 patientTimeTextView.text = it.time
             }
+        })
+        videoCall.observe(viewLifecycleOwner, Observer {
+            context?.let { context ->
+                Utils.initiatecall(
+                    context,
+                    it,
+                    CometChatConstants.RECEIVER_TYPE_USER,
+                    CometChatConstants.CALL_TYPE_VIDEO
+                )
+            }
+        })
+        chat.observe(viewLifecycleOwner, Observer {
+            CometChat.getUser(
+                it,
+                object : CometChat.CallbackListener<User>() {
+                    override fun onSuccess(user: User?) {
+                        user?.let { it1 ->
+                            activity?.startChatIntent(it1)
+                        }
+                    }
+                    override fun onError(p0: CometChatException?) {}
+                })
         })
     }
 

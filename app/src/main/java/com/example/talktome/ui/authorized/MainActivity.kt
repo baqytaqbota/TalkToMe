@@ -18,6 +18,7 @@ class MainActivity :
         val navController = findNavController(R.id.authorizedNav)
         bottomNavigationView.setupWithNavController(navController)
         setNavView(navController)
+        viewModel.loginForChat()
     }
 
     override fun setupPatientView() {
@@ -27,6 +28,7 @@ class MainActivity :
         val navController = findNavController(R.id.authorizedNav)
         bottomNavigationView.setupWithNavController(navController)
         setNavView(navController)
+        viewModel.loginForChat()
     }
 
     private fun setNavView(navController: NavController){

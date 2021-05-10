@@ -17,7 +17,7 @@ val networkModule = module {
 
     single { createService(get()) }
 
-    single { createRetrofit(get(), "http://185.5.206.85/api/v1/") }
+    single { createRetrofit(get(), "http://185.5.206.69/api/v1/") }
 
     single { createOkHttpClient() }
 
