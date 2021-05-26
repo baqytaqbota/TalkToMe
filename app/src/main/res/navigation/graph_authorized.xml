@@ -18,6 +18,10 @@
         <action
             android:id="@+id/action_from_main_to_doctor_detail"
             app:destination="@+id/doctorsDetail"/>
+
+        <action
+            android:id="@+id/action_from_main_to_add_diary"
+            app:destination="@+id/addDiaryFragment"/>
     </fragment>
 
     <fragment
@@ -74,6 +78,10 @@
         <action
             android:id="@+id/action_to_profile_session"
             app:destination="@id/profileSessionFragment" />
+
+        <action
+            android:id="@+id/action_from_profile_to_diary"
+            app:destination="@+id/diariesFragment"/>
     </fragment>
 
     <!-- BLOG -->
@@ -128,5 +136,28 @@
     <fragment
         android:id="@+id/profileSessionFragment"
         tools:layout="@layout/fragment_profile_feedback" />
+
+
+    <!-- DIARY -->
+    <fragment
+        android:id="@+id/addDiaryFragment"
+        tools:layout="@layout/fragment_add_diary"
+        android:name="com.example.talktome.ui.authorized.diary.addDiary.AddDiaryFragment"/>
+
+    <fragment
+        android:id="@+id/diariesFragment"
+        android:name="com.example.talktome.ui.authorized.diary.diaries.DiariesFragment"
+        tools:layout="@layout/fragment_diaries">
+
+        <action
+            android:id="@+id/action_to_diary_detail"
+            app:destination="@id/diaryDetailFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/diaryDetailFragment"
+        android:name="com.example.talktome.ui.authorized.diary.diaryDetail.DiaryDetailFragment"
+        tools:layout="@layout/fragment_diary_detail"/>
 
 </navigation>

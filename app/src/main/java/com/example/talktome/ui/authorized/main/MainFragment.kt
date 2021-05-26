@@ -78,6 +78,9 @@ class MainFragment : BaseFragment<MainViewModel>(MainViewModel::class, R.layout.
         videoDoctor.setOnClickListener {
             viewModel.onVideoCallClicked()
         }
+        addDiary.setOnClickListener {
+            findNavController().navigate(R.id.action_from_main_to_add_diary)
+        }
     }
 
     private fun setPatientView() {

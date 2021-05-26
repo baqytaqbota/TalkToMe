@@ -4,6 +4,8 @@ import com.example.talktome.data.authorization.model.RegisterRequestBody
 import com.example.talktome.data.authorization.model.AuthResultDTO
 import com.example.talktome.data.authorization.model.LoginRequestBody
 import com.example.talktome.data.blog.model.*
+import com.example.talktome.data.diary.model.DiaryDTO
+import com.example.talktome.data.diary.model.NewDiaryRequestDTO
 import com.example.talktome.data.doctors.model.DoctorListDTO
 import com.example.talktome.data.doctors.model.DoctorListRequestBody
 import com.example.talktome.data.patient.model.PatientInfoDTO
@@ -55,4 +57,10 @@ interface ApiService {
 
     @HTTP(method = "POST",path = "sessions/doctor", hasBody = true)
     suspend fun getSessions(@Body request: SessionDateRequestBody): List<SessionResultDTO>
+
+    @HTTP(method = "POST",path = "diary", hasBody = true)
+    suspend fun addNewDiary(@Body request: NewDiaryRequestDTO): Unit
+
+    @GET("diary")
+    suspend fun getAllDiaries() : List<DiaryDTO>
 }

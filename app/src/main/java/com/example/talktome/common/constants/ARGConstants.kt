@@ -8,4 +8,6 @@ object ARGConstants {
     const val ARG_BLOG_DATA = "ARG_BLOG_DATA"
 
     const val ARG_DOCTOR_DATA = "ARG_DOCTOR_DATA"
+
+    const val ARG_DIARY_DETAIL = "ARG_DIARY_DETAIL"
 }

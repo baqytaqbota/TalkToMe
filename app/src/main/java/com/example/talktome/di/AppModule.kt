@@ -4,6 +4,7 @@ import com.example.talktome.common.pref.Preference
 import com.example.talktome.data.authorizedUserData.AuthUserRepository
 import com.example.talktome.data.authorization.repository.AuthorizationRepository
 import com.example.talktome.data.blog.repository.BlogRepository
+import com.example.talktome.data.diary.repository.DiaryRepository
 import com.example.talktome.data.doctors.repository.DoctorsRepository
 import com.example.talktome.data.patient.repository.PatientRepository
 import com.example.talktome.data.session.repository.SessionRepository
@@ -11,6 +12,8 @@ import com.example.talktome.domain.authorization.MakeLoginUseCase
 import com.example.talktome.domain.authorization.MakeRegisterUseCase
 import com.example.talktome.domain.authorizedUser.*
 import com.example.talktome.domain.blog.*
+import com.example.talktome.domain.diary.GetAllDiariesUseCase
+import com.example.talktome.domain.diary.NewDiaryUseCase
 import com.example.talktome.domain.doctorsUseCase.GetAllDoctorsUseCase
 import com.example.talktome.domain.doctorsUseCase.GetDoctorProfileUseCase
 import com.example.talktome.domain.doctorsUseCase.GetDoctorsByTagUseCase
@@ -24,6 +27,9 @@ import com.example.talktome.ui.authorized.blog.addBlog.AddBlogViewModel
 import com.example.talktome.ui.authorized.blog.blogDetail.BlogDetailViewModel
 import com.example.talktome.ui.authorized.blog.main.BlogViewModel
 import com.example.talktome.ui.authorized.chat.ChatViewModel
+import com.example.talktome.ui.authorized.diary.addDiary.AddDiaryViewModel
+import com.example.talktome.ui.authorized.diary.diaries.DiariesViewModel
+import com.example.talktome.ui.authorized.diary.diaryDetail.DiaryDetailViewModel
 import com.example.talktome.ui.authorized.doctors.detail.DoctorsDetailViewModel
 import com.example.talktome.ui.authorized.doctors.main.DoctorsViewModel
 import com.example.talktome.ui.authorized.main.MainViewModel
@@ -116,6 +122,12 @@ val useCaseModule = module {
     factory {
         GetSessionsByDateUseCase(get())
     }
+    factory {
+        NewDiaryUseCase(get())
+    }
+    factory {
+        GetAllDiariesUseCase(get())
+    }
 }
 
 val repositoryModule = module {
@@ -136,6 +148,9 @@ val repositoryModule = module {
     }
     factory {
         SessionRepository(get())
+    }
+    factory {
+        DiaryRepository(get())
     }
 }
 
@@ -190,5 +205,14 @@ val viewModelModule = module {
     }
     viewModel {
         UserFeedbackViewModel(get())
+    }
+    viewModel { 
+        AddDiaryViewModel(get())
+    }
+    viewModel {
+        DiariesViewModel(get())
+    }
+    viewModel {
+        DiaryDetailViewModel()
     }
 }

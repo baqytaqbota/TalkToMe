@@ -1,7 +1,6 @@
 package com.example.talktome.ui.authorized.profile
 
 import android.app.AlertDialog
-import android.content.DialogInterface
 import android.content.Intent
 import android.widget.Toast
 import androidx.core.view.isVisible
@@ -41,9 +40,6 @@ class ProfileFragment :
     }
 
     private fun setDoctorClickListeners() {
-        doctorSessions.setOnClickListener {
-
-        }
         doctorBlogs.setOnClickListener {
             findNavController().navigate(R.id.action_to_profile_blogs)
         }
@@ -59,8 +55,8 @@ class ProfileFragment :
     }
 
     private fun setPatientClickListeners() {
-        patientSessions.setOnClickListener {
-
+        patientDiaries.setOnClickListener {
+            findNavController().navigate(R.id.action_from_profile_to_diary)
         }
         patientEditProfile.setOnClickListener {
             Toast.makeText(context, "Функционал в разработке", Toast.LENGTH_SHORT).show()

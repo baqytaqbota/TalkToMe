@@ -52,29 +52,12 @@
         android:gravity="center"
         android:text="#апатия #стресс #отсутствие концентрации #осутствие мотивации" />
 
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginHorizontal="24dp"
         android:layout_marginTop="64dp"
-        android:background="@color/itemBackgroundColorSecondary" />
-
-    <TextView
-        android:id="@+id/doctorSessions"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:fontFamily="@font/ubuntu"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:paddingVertical="16dp"
-        android:text="Мои сеансы"
-        android:textColor="@color/primaryTextColor"
-        android:textSize="18dp" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginHorizontal="24dp"
         android:background="@color/itemBackgroundColorSecondary" />
 
     <TextView
