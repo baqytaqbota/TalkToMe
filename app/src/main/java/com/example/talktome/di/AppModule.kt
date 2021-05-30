@@ -105,6 +105,12 @@ val useCaseModule = module {
         MakeDeleteBlogUseCase(get())
     }
     factory {
+        AddBlogFeedbackUseCase(get())
+    }
+    factory {
+        GetBlogFeedbackUseCase(get())
+    }
+    factory {
         GetPatientProfileUseCase(get())
     }
     factory {
@@ -192,7 +198,7 @@ val viewModelModule = module {
         AddBlogViewModel(get(), get(), get())
     }
     viewModel {
-        BlogDetailViewModel(get(), get())
+        BlogDetailViewModel(get(), get(), get(), get())
     }
     viewModel {
         DoctorsDetailViewModel()

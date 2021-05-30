@@ -24,3 +24,14 @@ data class BlogUpdateDeleteRequestBody(
     var author: String,
     var image: String
 ): Parcelable
+
+@Parcelize
+data class BlogFeedbackRequestBody(
+    val blogId: String,
+    val comment: String
+): Parcelable
+
+@Parcelize
+data class GetBlogFeedbackRequestBody(
+    val blogId: String
+): Parcelable

@@ -73,3 +73,25 @@ class MakeDeleteBlogUseCase(
         )
     }
 }
+
+class AddBlogFeedbackUseCase(
+    private val repo: BlogRepository
+): BaseUseCase<BlogFeedbackRequestBody, Unit>(){
+
+    override suspend fun run(params: BlogFeedbackRequestBody, response: (ResultApi<Unit>) -> Unit) {
+        response.invoke(
+            repo.addFeedback(params)
+        )
+    }
+}
+
+class GetBlogFeedbackUseCase(
+    private val repo: BlogRepository
+): BaseUseCase<String, List<BlogFeedbackDTO>>(){
+
+    override suspend fun run(params: String, response: (ResultApi<List<BlogFeedbackDTO>>) -> Unit) {
+        response.invoke(
+            repo.getBlogFeedback(GetBlogFeedbackRequestBody(params))
+        )
+    }
+}

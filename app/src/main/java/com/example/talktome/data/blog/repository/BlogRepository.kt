@@ -2,9 +2,7 @@ package com.example.talktome.data.blog.repository
 
 import com.example.talktome.common.network.ApiService
 import com.example.talktome.common.network.networkUtils.safeApiCall
-import com.example.talktome.data.blog.model.BlogByIdRequestBody
-import com.example.talktome.data.blog.model.BlogUpdateDeleteRequestBody
-import com.example.talktome.data.blog.model.NewBlogRequestBody
+import com.example.talktome.data.blog.model.*
 
 class BlogRepository(
     private val apiService: ApiService
@@ -32,5 +30,13 @@ class BlogRepository(
 
     suspend fun deleteBlog(param: BlogUpdateDeleteRequestBody) = safeApiCall {
         apiService.deleteBlogs(param)
+    }
+
+    suspend fun addFeedback(body: BlogFeedbackRequestBody) = safeApiCall {
+        apiService.addBlogFeedback(body)
+    }
+
+    suspend fun getBlogFeedback(body: GetBlogFeedbackRequestBody)  = safeApiCall {
+        apiService.getBlogFeedback(body)
     }
 }

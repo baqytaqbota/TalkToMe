@@ -19,3 +19,12 @@ data class BlogItemDTO(
     val createdAt: String,
     val image: String
 ): Parcelable
+
+@Parcelize
+data class BlogFeedbackDTO(
+    val _id : String,
+    val blogId: String,
+    val patient: String,
+    val comment: String,
+    val createdAt: String
+): Parcelable
